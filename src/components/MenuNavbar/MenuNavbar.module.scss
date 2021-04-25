@@ -1,0 +1,15 @@
+$navbar_icon_size: 26px;
+$fill: #6c757d;
+
+.navbarIconItem {
+  width: $navbar_icon_size;
+  height: $navbar_icon_size;
+  margin-left: 8px;
+  fill: $fill;
+}
+
+.navbarUsername {
+  font-size: 14px;
+  margin-left: 1.5rem;
+  display: block;
+}

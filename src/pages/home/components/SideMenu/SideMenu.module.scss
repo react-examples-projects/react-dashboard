@@ -1,0 +1,37 @@
+$active_color: #000;
+$color: #6c757d;
+$before_color: #aa2ee6;
+
+.sideMenuItem {
+
+  position: relative;
+  color: $color;
+
+  &:hover {
+    text-decoration: none;
+    color: $active_color;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    background: $before_color;
+    position: absolute;
+    height: 100%;
+    width: 0;
+    bottom: 0;
+    right: 0;
+    transition: all 0.2s ease;
+  }
+
+  svg {
+    fill: $color;
+  }
+}
+
+.active {
+  color: $active_color !important;
+  &::before {
+    width: 3px;
+  }
+}
