@@ -3,10 +3,11 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import SideMenu from "./components/SideMenu/SideMenu";
 import MenuBavbar from "../../components/MenuNavbar/MenuNavbar";
+import Board from "./components/Board/Board";
 
 function App() {
   return (
-    <Container className="mt-5">
+    <Container className="my-5">
       <Row>
         <Col md={3} lg={3} className="mt-5 border-right pr-0">
           <h1
@@ -24,9 +25,20 @@ function App() {
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita
             similique provident molestias consequuntur error voluptas eos
-            explicabo, autem ut a iusto soluta quod officia laboriosam, cum
-            nihil reiciendis, molestiae voluptatibus.
+            explicabo, autem ut a iusto soluta quod officia laboriosam.
           </p>
+
+          <Row>
+            <Col className="p-2" sm={12} md={6} lg={4}>
+              <Board title="Todo" countTasks={2}/>
+            </Col>
+            <Col className="p-2" sm={12} md={6} lg={4}>
+              <Board title="In Progress" countTasks={32}/>
+            </Col>
+            <Col className="p-2" sm={12} md={6} lg={4}>
+              <Board title="Completed" countTasks={7}/>
+            </Col>
+          </Row>
         </Col>
       </Row>
     </Container>

@@ -1,0 +1,53 @@
+.board {
+  padding: 0.9rem;
+  background-color: #b0efeb1c;
+  border-radius: 20px;
+}
+
+.btnAdd {
+  background-color: #b0efeb4d !important;
+  border-color: transparent !important;
+
+  &:focus {
+    box-shadow: 0 0 0 0.1rem #10867c54 !important;
+  }
+}
+
+.countTasks {
+  background: #b0efeb4d;
+  border-radius: 10px;
+  font-size: 12px;
+
+  strong {
+    color: #10867cec;
+  }
+}
+
+.buttonAddIcon {
+  fill: #10867cd7;
+  width: 15px;
+  height: 15px;
+}
+
+.task {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.135);
+
+  > h6 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  > p {
+    font-size: 12px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &:active {
+    cursor: move;
+  }
+}
