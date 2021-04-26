@@ -1,15 +1,15 @@
 import React from "react";
 import css from "./Board.module.scss";
-export default function Task() {
+function Task({ id, title, content, date, author, ...props }, ref) {
   return (
-    <div className={css.task}>
-      <h6>Design</h6>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque eligendi
-        neque quae reprehenderit aut, necessitatibus quaerat animi repellendus
-        sapiente dolorum exercitationem labore nihil ad blanditiis placeat
-        doloribus rem molestias temporibus.
-      </p>
+    <div className={css.task} data-task-id={id} {...props} ref={ref}>
+      <h6>{title}</h6>
+      <p>{content}</p>
+      <time dateTime={date} className="text-muted" style={{ fontSize: "10px" }}>
+        {date}
+      </time>
     </div>
   );
 }
+
+export default React.forwardRef(Task);

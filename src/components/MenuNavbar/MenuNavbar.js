@@ -23,10 +23,15 @@ export default function MenuNavbar() {
         >
           Libardo rengifo
           <Dropdown className="d-inline-block w-auto ml-1" drop="left">
-            <Dropdown.Toggle className="d-inline-block p-0 m-0 bg-transparent border-0">
+            <Dropdown.Toggle
+              className={cls(
+                "d-inline-block p-0 m-0 bg-transparent border-0",
+                css.toggleNavbar
+              )}
+            >
               <BiChevronDown />
             </Dropdown.Toggle>
-            <Dropdown.Menu>
+            <Dropdown.Menu className="border-0 shadow-lg">
               <Dropdown.Item className="pl-3">
                 <small> Change password</small>
               </Dropdown.Item>
@@ -37,9 +42,12 @@ export default function MenuNavbar() {
           </Dropdown>
         </span>
         <img
-          src="https://picsum.photos/35/35"
-          alt="Your account"
+          src="https://picsum.photos/45/45"
+          alt="Your account profile avatar"
+          title="Your account profile image"
           className="img-fluid rounded-circle d-block ml-2"
+          width="35"
+          height="35"
         />
       </div>
     </Navbar>

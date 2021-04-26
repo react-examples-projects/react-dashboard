@@ -13,3 +13,7 @@ $fill: #6c757d;
   margin-left: 1.5rem;
   display: block;
 }
+
+.toggleNavbar::before {
+  display: none !important;
+}
