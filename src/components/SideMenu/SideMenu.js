@@ -7,10 +7,12 @@ import {
   BiLogOut,
 } from "react-icons/bi";
 import SideMenuItem from "./SideMenuItem";
+import cs from "classnames";
+import css from "./SideMenu.module.scss";
 
 export default function SideMenu() {
   return (
-    <nav className="list-group">
+    <nav className={cs("list-group", css.sideMenu)}>
       <SideMenuItem to="/" text="Overview" icon={BiHomeAlt} />
       <SideMenuItem to="/stats" text="Stats" icon={BiBarChart} />
       <SideMenuItem to="/projects" text="Projects" icon={BiFolder} />

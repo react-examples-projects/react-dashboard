@@ -1,0 +1,18 @@
+.layoutTitle {
+  font-size: 1.3rem;
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 992px) {
+  div.layoutSideColumn {
+    border-right: 0 !important;
+  }
+
+  .layoutTitle {
+    margin-bottom: 2rem;
+  }
+
+  .container {
+    max-width: 95% !important;
+  }
+}

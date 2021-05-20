@@ -1,0 +1,22 @@
+.task {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.135);
+
+  > h6 {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  > p {
+    font-size: 12px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &:active {
+    cursor: move;
+  }
+}

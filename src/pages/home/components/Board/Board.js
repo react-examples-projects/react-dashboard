@@ -4,13 +4,13 @@ import { BiAddToQueue } from "react-icons/bi";
 import { Droppable, Draggable } from "react-beautiful-dnd";
 import PropTypes from "prop-types";
 import cs from "classnames";
-import Task from "./Task";
+import Task from "../Task/Task";
 
 function Board({ title = "Untitle", countTasks = 0, tasks = [] }) {
   const id = title.toLowerCase().trim().replace(/ /gi, "-");
   return (
     <div className={cs("shadow-sm", css.board)}>
-      <div className="d-flex justify-content-lg-between align-items-center">
+      <div className="d-flex justify-content-between align-items-center">
         <h6 className="font-weight-bold m-0" style={{ fontSize: "14px" }}>
           {title}
         </h6>
@@ -33,12 +33,12 @@ function Board({ title = "Untitle", countTasks = 0, tasks = [] }) {
                     draggableId={task.id.toString()}
                     index={index}
                   >
-                    {(provided) => (
+                    {(_provided) => (
                       <Task
                         {...task}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
+                        {..._provided.draggableProps}
+                        {..._provided.dragHandleProps}
+                        ref={_provided.innerRef}
                       />
                     )}
                   </Draggable>

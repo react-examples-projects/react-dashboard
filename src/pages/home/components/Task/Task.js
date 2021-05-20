@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./Board.module.scss";
+import css from "./Task.module.scss";
 function Task({ id, title, content, date, author, ...props }, ref) {
   return (
     <div className={css.task} data-task-id={id} {...props} ref={ref}>

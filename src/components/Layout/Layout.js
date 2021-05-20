@@ -4,22 +4,22 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import MenuBavbar from "../MenuNavbar/MenuNavbar";
 import SideMenu from "../SideMenu/SideMenu";
-
+import cs from "classnames";
+import css from "./Layout.module.scss";
 function Layout({ children }) {
   return (
-    <Container className="my-5">
+    <Container className={cs("my-5", css.container)}>
       <Row>
-        <Col md={3} lg={3} className="mt-5 border-right pr-0">
-          <h1
-            style={{ fontSize: "1.3rem", marginBottom: "4rem" }}
-            className="font-weight-bold"
-          >
-            .studio
-          </h1>
+        <Col
+          md={12}
+          lg={3}
+          className={cs("mt-5 border-right pr-0", css.layoutSideColumn)}
+        >
+          <h1 className={cs("font-weight-bold", css.layoutTitle)}>.studio</h1>
           <SideMenu />
         </Col>
 
-        <Col md={9} lg={9} className="mt-5 pl-4">
+        <Col md={12} lg={9} className="mt-5 pl-4">
           <MenuBavbar />
           {children}
         </Col>

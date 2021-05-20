@@ -8,18 +8,16 @@ import { useState } from "react";
 import reorder from "../../helpers/reorder";
 
 export default function App() {
-  const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks")) || tasks_list
-  );
+  const [tasks, setTasks] = useState(tasks_list);
 
   const onDragEnd = (result) => {
     const stateTasks = { ...tasks };
 
     if (!result.destination) return;
     console.log(result);
-    console.log(tasks_list[result.source.droppableId]);
+    console.log(stateTasks[result.source.droppableId]);
     const tasksOrdened = reorder(
-      tasks_list[result.source.droppableId],
+      stateTasks[result.source.droppableId],
       result.source.index,
       result.destination.index
     );
@@ -38,13 +36,13 @@ export default function App() {
 
       <Row>
         <DragDropContext onDragEnd={onDragEnd}>
-          <Col className="p-2" sm={12} md={6} lg={4}>
+          <Col className="p-2" sm={12} md={4} lg={4}>
             <Board title="Todo" countTasks={2} tasks={tasks.todo} />
           </Col>
-          <Col className="p-2" sm={12} md={6} lg={4}>
+          <Col className="p-2" sm={12} md={4} lg={4}>
             <Board title="In Progress" countTasks={32} tasks={tasks.progress} />
           </Col>
-          <Col className="p-2" sm={12} md={6} lg={4}>
+          <Col className="p-2" sm={12} md={4} lg={4}>
             <Board title="Completed" countTasks={7} tasks={tasks.completed} />
           </Col>
         </DragDropContext>
