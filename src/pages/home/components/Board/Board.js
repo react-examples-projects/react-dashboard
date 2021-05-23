@@ -5,19 +5,46 @@ import PropTypes from "prop-types";
 import cs from "classnames";
 import Task from "../Task/Task";
 function Board({ title = "Untitle", countTasks = 0, tasks = [], id }) {
+
   const onDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    e.target.style.border = "0";
 
     const cardId = e.dataTransfer.getData("card_id");
-    console.log("onDrop EVENT");
+    const boardId = e.dataTransfer.getData("board_id");
     const card = document.getElementById(cardId);
+    if (card.parentNode.isSameNode(e.target)) return;
+
+    console.log(e.target);
+    console.log("Card id:", cardId);
+    console.log("Board id:", boardId);
     document.getElementById(id).appendChild(card);
+    return false;
+
   };
 
   const onDragOver = (e) => {
     e.stopPropagation();
     e.preventDefault();
+    return false;
+
+  };
+
+  const onDragEnter = (e) => {
+    console.log(e.target)
+    e.stopPropagation();
+    e.preventDefault();
+    e.target.style.border = "1px solid #10867c54";
+    return false;
+
+  };
+  const onDragLeave = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    e.target.style.border = "0";
+    return false;
+
   };
 
   return (
@@ -25,6 +52,8 @@ function Board({ title = "Untitle", countTasks = 0, tasks = [], id }) {
       className={cs("shadow-sm", css.board)}
       onDrop={onDrop}
       onDragOver={onDragOver}
+      onDragEnter={onDragEnter}
+      onDragLeave={onDragLeave}
     >
       <div className="d-flex justify-content-between align-items-center">
         <h6 className="font-weight-bold m-0" style={{ fontSize: "14px" }}>
@@ -40,7 +69,7 @@ function Board({ title = "Untitle", countTasks = 0, tasks = [], id }) {
 
       <div id={id}>
         {tasks.map((task, index) => {
-          return <Task {...task} key={task.id} />;
+          return <Task {...task} key={task.id} boardId={id} />;
         })}
       </div>
     </div>

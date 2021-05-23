@@ -1,16 +1,26 @@
 import React from "react";
 import css from "./Task.module.scss";
 
-export default function Task({ id, title, content, date, author }) {
+export default function Task({ id, boardId, title, content, date, author }) {
   const onDragStart = (e) => {
-    console.log("Empezo el dragStart")
+    e.stopPropagation();
+    console.log("Empezo el dragStart");
     const target = e.target;
     e.dataTransfer.setData("card_id", target.id);
+    e.dataTransfer.setData("board_id", boardId);
+    return false;
   };
 
   const onDragOver = (e) => {
     e.stopPropagation();
     e.preventDefault();
+    return false;
+  };
+
+  const onDrop = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
   };
 
   return (
@@ -19,6 +29,7 @@ export default function Task({ id, title, content, date, author }) {
       id={id}
       onDragStart={onDragStart}
       onDragOver={onDragOver}
+      onDrop={onDrop}
       draggable
     >
       <h6>{title}</h6>
