@@ -7,6 +7,13 @@ import { useState } from "react";
 
 export default function App() {
   const [tasks, setTasks] = useState(tasks_list);
+  const addTasksInBoard = (board, task) => {
+    const copy = { ...tasks };
+    const board_array = copy[board];
+    task.id = board_array[board_array.length - 1].id + 1;
+    board_array.push(task);
+    setTasks(copy);
+  };
 
   return (
     <Layout>
@@ -19,22 +26,30 @@ export default function App() {
 
       <Row>
         <Col className="p-2" sm={12} md={4} lg={4}>
-          <Board title="Todo" countTasks={2} tasks={tasks.todo} id="todo" />
+          <Board
+            title="Todo"
+            countTasks={tasks.todo.length}
+            tasks={tasks.todo}
+            id="todo"
+            addTasksInBoard={addTasksInBoard}
+          />
         </Col>
         <Col className="p-2" sm={12} md={4} lg={4}>
           <Board
             title="In Progress"
-            countTasks={32}
-            tasks={tasks.progress}
+            countTasks={tasks["in-progress"].length}
+            tasks={tasks["in-progress"]}
             id="in-progress"
+            addTasksInBoard={addTasksInBoard}
           />
         </Col>
         <Col className="p-2" sm={12} md={4} lg={4}>
           <Board
             title="Completed"
-            countTasks={7}
+            countTasks={tasks.completed.length}
             tasks={tasks.completed}
             id="completed"
+            addTasksInBoard={addTasksInBoard}
           />
         </Col>
       </Row>
