@@ -38,8 +38,8 @@ function Board({
 
   const onDragEnter = (e) => {
     console.log(e.target);
-    e.stopPropagation();
     e.preventDefault();
+    e.stopPropagation();
     e.target.style.border = "1px solid #10867c54";
     return false;
   };
