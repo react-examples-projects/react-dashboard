@@ -31,7 +31,7 @@ npm run build
 ```
 
 ## Demo
-[Preview](https://coming-soon.com/)
+[Preview](https://wizardly-beaver-cfc907.netlify.app/)
 
 ## Author
 
